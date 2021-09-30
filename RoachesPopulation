@@ -1,0 +1,66 @@
+/**
+ * This is a class that allows a client 
+ * to instantiate a RoachPopulation object
+ * contains 2 constructors and multiple methods
+ * @author Gordon Lee
+ * Collaborators: None
+ * Teacher: Bailey
+ * Period: 0
+ * Due Date 10-01-21
+ * */
+public class roach {
+
+	public static final int DEFAULT_POPULATION = 10;	
+	public static final int DOUBLE_NUMB = 2;
+	//instance variable, the roach population
+	private int numRoaches;
+	
+	/** 
+	 *Default constructor, initializes the population to 10
+	 */
+	public roach () 
+	{
+	 numRoaches = DEFAULT_POPULATION;	
+	}
+	
+	/** 
+	 *Overloaded constructor
+	 *@param number the number of roaches from user input
+	 */
+	public roach (int number)
+	{
+	 numRoaches = number;	
+		
+	}
+	
+	/** 
+	 *gets the roach population
+	 *@return the number of roaches
+	 */
+	public int getRoaches()
+	{
+	 return numRoaches;	
+	}
+	
+	/** 
+	 *doubles the roach population
+	 */
+	public void waitForDoubling()
+	{
+	 numRoaches = numRoaches * DOUBLE_NUMB;	
+	}
+	
+	/** 
+	 *reduces the population of roaches
+	 *@param strengthSpray strength of insecticide to kill roaches
+	 *@return number of roaches killed
+	 */
+	public int spray (double strengthSpray)
+	{
+	 double roachesKilled = numRoaches * (strengthSpray / 100);
+	 roachesKilled = Math.ceil(roachesKilled);
+	 int kills = (int)roachesKilled;
+	 numRoaches = numRoaches - kills;
+	 return kills;
+	}
+}
