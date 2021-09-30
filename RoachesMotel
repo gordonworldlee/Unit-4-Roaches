@@ -1,0 +1,63 @@
+/**
+ * This is the client class containing
+ * main method of the program. It uses
+ * the RoachPopulation class
+ * @author Gordon Lee
+ * Collaborators: None
+ * Teacher: Bailey
+ * Period:0
+ * Due Date: 10-01-21
+ * */
+import java.util.Scanner;
+public class any
+{
+	
+	public static void main(String[] args) 
+	{
+		// creates computer lab and shows the roach population
+		roach computerLab  = new roach();
+		int roachNum = computerLab.getRoaches();
+		System.out.println("My lab has an initial population of " + roachNum + " roaches.");
+		System.out.println();
+		
+		//creates kitchen and shows roach population based on input
+		Scanner read = new Scanner(System.in);
+		System.out.println("Enter starting population of the kitchen (an integer): ");
+		int initialPopulation = read.nextInt();
+		roach kitchen = new roach (initialPopulation);
+		int roachNum2 = kitchen.getRoaches();
+		System.out.println("My lab has an initial population of " + roachNum2 + " roaches.");
+		System.out.println();
+		
+		//waits for kitchen and lab population to double and displays results
+		kitchen.waitForDoubling();
+		System.out.println("Waiting for the kitchen population to grow...");
+		System.out.println("My kitchen now has " +  kitchen.getRoaches() + " roaches.");
+		System.out.println();
+		computerLab.waitForDoubling();
+		System.out.println("Waiting for the lab population to grow...");
+		System.out.println("My lab now has " +  computerLab.getRoaches() + " roaches.");
+		System.out.println();
+
+		//asks for strength of insecticide and shows you population after use
+		//and shows how many bugs killed
+		System.out.println("Enter strength of kitchen insecticide used (ex, 22.75): ");
+		double pestPercent = read.nextDouble();
+		int pestKilled = kitchen.spray(pestPercent);
+		int roachNum3 = kitchen.getRoaches();
+		System.out.print("My kitchen now has " + roachNum3 + " roaches after killing "); 
+		System.out.println(pestKilled + " roaches.");
+		System.out.println();
+		System.out.println("Enter strength of lab insecticide used (ex, 22.75): ");
+		double pestPercent2 = read.nextDouble();
+		int pestKilled2 = computerLab.spray(pestPercent2);
+		int roachNum4 = computerLab.getRoaches();
+		System.out.print("My lab now has " + roachNum4 + " roaches after killing "); 
+		System.out.println(pestKilled2 + " roaches.");
+		System.out.println("");
+		
+	}
+		
+
+	
+}
